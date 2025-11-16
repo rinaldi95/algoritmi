@@ -324,4 +324,10 @@ Esempio di riga compilata:
 * Data inizio: [compila]
 * Stato: AGENTS_TEMPLATE creato a livello radice
 * Linguaggi coperti: n/d
+* Algoritmo: Setup repo Git/GitHub
+* Data inizio: 2025-11-16
+* Stato: remoto configurato, primo push completato
+* Linguaggi coperti: n/d
+* Problemi aperti / note: ricordarsi log compatto con "git log --oneline --graph --all | head -n 20"
+
 * Problemi aperti / note: copia e adatta nelle sottocartelle prima di iniziare ciascun algoritmo
