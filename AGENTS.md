@@ -123,6 +123,7 @@ Queste regole devono essere ricordate in ogni AGENTS.md locale creato dall’ist
 4. Ordine dei micro-blocchi di codice da proporre all’utente.
 5. Set di test minimi (casi base, degenerati, tipici).
 6. Note specifiche per il linguaggio della sottocartella (vedi linee guida sotto).
+7. Tracciamento prestazioni: cosa misurare (tempo/iterazioni) e con quali input crescenti.
 
 ## 5. Piano di studi: elenco degli algoritmi (vista globale)
 
@@ -279,6 +280,16 @@ L’istanza madre rimane sempre disponibile per:
 * C++: usare `std::vector`/RAII per evitare leak; evitare raw pointers quando non servono; preferire funzioni piccole e test incrementali.
 * Python: privilegiare leggibilità; usare `if __name__ == "__main__":` per incapsulare test; aggiungere semplici assert o unittest leggeri.
 * Assembly: obiettivo minimo è capire il flusso e lo stato dei registri; procedere per micro-step, commentare ogni istruzione, testare input semplici.
+
+### Linee guida per tracciamento prestazioni (da includere nei futuri AGENTS locali)
+
+* Specifica cosa misurare: tempo di esecuzione (grossolano) e/o numero di iterazioni/confronti quando il tempo non è significativo.
+* Definisci una serie di input crescenti (es. n = 0, 1, 10, 100, 1_000, 10_000) e quali casi degenerati provare (es. quicksort su array ordinato).
+* Strumenti suggeriti:
+  * C/C++: `clock()` o `std::chrono` per misure basilari; evitare micro-ottimizzazioni premature.
+  * Python: `time.perf_counter()`; ripetere più volte e prendere il minimo/mediana.
+  * Assembly: conta iterazioni o passi logici; il tempo reale è meno pratico.
+* Riporta sempre l’ordine di grandezza e il comportamento atteso (O(·)) per confrontare teoria ed empiria.
 
 ## 7. Vincoli generali per l’istanza madre
 
