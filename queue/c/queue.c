@@ -101,6 +101,7 @@ int queue_enqueue(Queue* q, int value){
 			fprintf(stderr,"realloc failure: enqueue not performed\n");
 			return -1;
 		}
+
 		q->data=new_data;
 		for (int i=q->head;i<q->capacity;i++){
 			q->data[i+q->capacity]=q->data[i];

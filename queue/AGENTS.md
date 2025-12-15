@@ -58,7 +58,7 @@
 - Non creare/modificare file automaticamente; proporre soltanto.
 
 ## Tracking locale
-- Data inizio:
-- Stato: spiegato / codifica avviata / test minimi ok / bench
-- Linguaggi coperti:
-- Problemi aperti / note:
+- Data inizio: (compila tu)
+- Stato: test minimi ok in C (enqueue/dequeue/peek con wrap e resize)
+- Linguaggi coperti: C
+- Problemi aperti / note: valuta se aggiungere benchmark opzionali e portare l’implementazione in altri linguaggi
