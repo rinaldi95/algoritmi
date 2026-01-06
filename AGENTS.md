@@ -117,13 +117,14 @@ Queste regole devono essere ricordate in ogni AGENTS.md locale creato dall’ist
 
 ### Checklist minima da includere in ogni AGENTS.md locale
 
-1. Definizione formale del problema: input, output, criterio di correttezza.
-2. Edge case obbligatori da gestire/testare.
-3. Pseudocodice sintetico (solo i passi logici, non una muraglia).
-4. Ordine dei micro-blocchi di codice da proporre all’utente.
-5. Set di test minimi (casi base, degenerati, tipici).
-6. Note specifiche per il linguaggio della sottocartella (vedi linee guida sotto).
-7. Tracciamento prestazioni: cosa misurare (tempo/iterazioni) e con quali input crescenti.
+1. Mini-contratto in parole semplici: cosa deve poter fare (operazioni), cosa entra/che limiti ha, cosa esce in caso di successo/errore.
+2. Definizione formale del problema: input, output, criterio di correttezza.
+3. Edge case obbligatori da gestire/testare.
+4. Pseudocodice sintetico (solo i passi logici, non una muraglia).
+5. Ordine dei micro-blocchi di codice da proporre all’utente.
+6. Set di test minimi (casi base, degenerati, tipici).
+7. Note specifiche per il linguaggio della sottocartella (vedi linee guida sotto).
+8. Tracciamento prestazioni: cosa misurare (tempo/iterazioni) e con quali input crescenti.
 
 ## 5. Piano di studi: elenco degli algoritmi (vista globale)
 
@@ -290,6 +291,15 @@ L’istanza madre rimane sempre disponibile per:
   * Python: `time.perf_counter()`; ripetere più volte e prendere il minimo/mediana.
   * Assembly: conta iterazioni o passi logici; il tempo reale è meno pratico.
 * Riporta sempre l’ordine di grandezza e il comportamento atteso (O(·)) per confrontare teoria ed empiria.
+
+### Mini-contratto (da scrivere prima dell’header)
+
+* Operazioni: cosa deve poter fare la struttura/algoritmo (es. “aggiungi in fondo”, “togli in testa”).
+* Input attesi: tipo di dato, limiti, precondizioni.
+* Output: cosa restituisce se va bene; cosa restituisce/segnala se va male (sentinel, codice errore).
+* Casi limite da ricordare: vuoto, pieno, elemento mancante, uno solo, wrap/resize, duplicati, ecc.
+* Complessità attesa (solo ordine): costante, lineare, logaritmica per le operazioni principali.
+* Invarianti semplici: cosa deve restare sempre vero (es. head NULL se vuota; tail->next NULL; size coerente).
 
 ## 7. Vincoli generali per l’istanza madre
 
