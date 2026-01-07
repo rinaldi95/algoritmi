@@ -20,8 +20,9 @@ int main(void){
 	int a13[]={17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1};
 	int a14[]={18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1};
 	int a15[]={21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1};
-	int *tests[]={a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15};
-	int n[]={10,5,0,1,2,5,5,4,7,5,5,16,17,18,21};
+	int a16[]={1,2};
+	int *tests[]={a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16};
+	int n[]={10,5,0,1,2,5,5,4,7,5,5,16,17,18,21,2};
 
 	int num_tests=(int)(sizeof (n)/sizeof(int));
 	for (int i=0;i<num_tests;i++){
@@ -30,14 +31,12 @@ int main(void){
 			fprintf(stderr,"Error: malloc failure");
 			return -1;
 		}
-/*		for (int j=0;j<n[i];j++){
+		for (int j=0;j<n[i];j++){
 			a[j].key=tests[i][j];
 			a[j].id=j;
 		}
-		printf("\n ---------------------insertion_sort------------------\n");
-		print_array(a,n[i]);
+//		printf("\n ---------------------insertion_sort------------------\n");
 		insertion_sort(a, n[i]);
-		print_array(a,n[i]);
 		for (int j=1;j<n[i];j++){
 			assert(a[j-1].key<=a[j].key);
 			if (a[j-1].key==a[j].key){
@@ -48,33 +47,54 @@ int main(void){
 			a[j].key=tests[i][j];
 			a[j].id=j;
 		}
-		printf("\n ---------------------selection_sort------------------\n");
-		print_array(a,n[i]);
+//		printf("\n ---------------------selection_sort------------------\n");
 		selection_sort(a, n[i]);
-		print_array(a,n[i]);
 		for (int j=1;j<n[i];j++){
 			assert(a[j-1].key<=a[j].key);
 			if (a[j-1].key==a[j].key){
 //				assert(a[j-1].id<a[j].id);
 			}
-		}*/
+		}
 		for (int j=0;j<n[i];j++){
 			a[j].key=tests[i][j];
 			a[j].id=j;
 		}
-		printf("\n ---------------------merge_sort------------------\n");
-		print_array(a,n[i]);
+//		printf("\n ---------------------merge_sort------------------\n");
 		merge_sort(a, n[i]);
-		print_array(a,n[i]);
 		for (int j=1;j<n[i];j++){
 			assert(a[j-1].key<=a[j].key);
 			if (a[j-1].key==a[j].key){
 				assert(a[j-1].id<a[j].id);
 			}
 		}
+
+		for (int j=0;j<n[i];j++){
+			a[j].key=tests[i][j];
+			a[j].id=j;
+		}
+//		printf("\n ---------------------quick_sort------------------\n");
+		quick_sort(a, n[i]);
+		for (int j=1;j<n[i];j++){
+			assert(a[j-1].key<=a[j].key);
+			if (a[j-1].key==a[j].key){
+			//	assert(a[j-1].id<a[j].id);
+			}
+		}
+		for (int j=0;j<n[i];j++){
+			a[j].key=tests[i][j];
+			a[j].id=j;
+		}
+//		printf("\n ---------------------heap_sort------------------\n");
+		heap_sort(a, n[i]);
+		for (int j=1;j<n[i];j++){
+			assert(a[j-1].key<=a[j].key);
+			if (a[j-1].key==a[j].key){
+			//	assert(a[j-1].id<a[j].id);
+			}
+		}
+		printf("test %d passed\n",i);
 	free(a);
 	}
-
 	
 	return 0;
 }
